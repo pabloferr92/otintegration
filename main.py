@@ -46,7 +46,21 @@ class Ui(QtWidgets.QMainWindow):
     def PrintInputValue(self):
         print(self.inputEnterprise.text())
 
-
+    def GetPrintJobsUI(self):
+        #from PrintJobsObjectExample import result
+        enterpriseName = self.inputEnterprise.text()
+        enterpriseKey = self.inputEnterpriseKey.text()
+        authDomainName = self.inputDomain.text()
+        authLogonName = self.inputLogon.text()
+        authPassword = EncryptPW(self.inputPW.text())
+        filterDateStart = self.inputDateStart.text()
+        filterDateEnd = self.inputDateEnd.text()
+        #self.result = result
+        self.result = True
+        
+        self.labelResult.setText('result')
+        
+       
 
 
 app = QtWidgets.QApplication(sys.argv)

@@ -2,60 +2,45 @@ import requests
 import json
 import sys
 sys.path.append("f:/projetos/integracoes/")
-from Parsers import ReturnAciteShipments
+from Parsers import ReturnItemsOfShipments
 from CriptNDD import EncryptPW
-
 from datetime import datetime, date, timedelta
 
-def GetActiveShipmentsForSupplier(supplierid,email,passsword):
-
+def GetItemsFromInputShipment(supplierid,email,passsword, shipmentid):
     passsword = EncryptPW(passsword)
-
     url = 'https://api-supplierorders.nddprint.com/SupplierOrdersWS/SupplierOrdersData.asmx'
     #print(url,dealername,usermail, userpw)
-
     payload ="""<?xml version="1.0" encoding="utf-8"?>
     <soap:Envelope
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
-            <GetActiveShipmentsForSupplier xmlns="nddprint.com/api/">
+        <GetItemsFromInputShipment xmlns="nddprint.com/api/">
             <supplierID>{}</supplierID>
             <supplierUserEmail>{}</supplierUserEmail>
             <supplierUserPassword>{}</supplierUserPassword>
-            <fieldsList>
-                ShipmentID;
-                ExpectedDate;
-                ShipmentStatusID;
-                OrderID;
-                OrderShipmentNumber;
-                StockID;
-                StockName;
-                OrderField1Name;
-                OrderField1Value
-            </fieldsList>                       
-            </GetActiveShipmentsForSupplier>
+            <shipmentID>{}</shipmentID>                    
+            </GetItemsFromInputShipment>
         </soap:Body>
     </soap:Envelope>
-    """.format(supplierid,email,passsword)
-
+    """.format(supplierid,email,passsword,shipmentid)
     headers = {
     'Host': "api-supplierorders.nddprint.com",
     'Content-Type': "text/xml;charset=UTF-8",
-    'soapAction': "nddprint.com/api/GetActiveShipmentsForSupplier",
+    'soapAction': "nddprint.com/api/GetItemsFromInputShipment",
     }
     response = requests.post(url, data = payload, headers = headers)
 
-    response_json = ReturnAciteShipments(response.content)
+    response_json = ReturnItemsOfShipments(response.content)
 
-    shipments_return = {
-        "shipments" : response_json,
-        "total_shipments" : len(response_json),
+    items_shipments_return = {
+        "items" : response_json,
+        "total_items" : len(response_json),
     }
 
-    return shipments_return
+    return items_shipments_return
 
-#print(GetActiveShipmentsForSupplier('362','lucas.silva@ndd.com.br','MU/TS5GBuxjdP7bMT773nw=='))
+print(GetItemsFromInputShipment('362','lucas.silva@ndd.com.br','aca122','382878'))
 
 #senha descriptografada aca122

@@ -1,14 +1,29 @@
 from ExampleReturn import ActiveShipment
 from ReadNF import ReturnNfInformations
+from GetActiveShipmentsForSupplier import GetActiveShipmentsForSupplier
 
 
-def NfShipmentComparative():
-    nf_informations = ReturnNfInformations()
+def NfShipmentComparative(logon, password, shipmentid):
 
-    total_nfs = len(nf_informations['nfs'])
-    total_nfs_to_close = len(nf_informations['nfs_to_close'])
+    nfs = ReturnNfInformations()
+    shipments = ActiveShipment
+    #shipments = GetActiveShipmentsForSupplier(logon,password,shipmentid)
+    context = {
+            'nfs_in_shipments' : [],
+            'nfs_in_nfs' : [],
+            'nfs_not_in_shipments' : []
+    }
 
-    total_shipments = len(ActiveShipment)
-    print(total_shipments)       
+    for n in nfs['nfs']:
+        nf = n[0].split(';')
+        context['nfs_in_nfs'].append(nf[0])
 
-NfShipmentComparative()
+    for s in shipments:
+        context['nfs_in_shipments'].append(s['OrderField1Value'])
+
+    for nf in context['nfs_in_nfs']:
+        if nf not in context['nfs_in_shipments']:
+            context['nfs_not_in_shipments'].append(nf)
+            
+    return context
+        

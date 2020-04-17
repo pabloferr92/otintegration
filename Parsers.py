@@ -9,4 +9,12 @@ def ReturnAciteShipments(response):
         errors = soup.faultstring.get_text()
         return errors
 
+def ReturnItemsOfShipments(response):
+    soup = BeautifulSoup(response, 'html.parser')
+    try:
+        items = soup.getitemsfrominputshipmentresult.get_text()
+        return items
+    except:
+        errors = soup.faultstring.get_text()
+        return errors
 

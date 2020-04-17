@@ -32,7 +32,8 @@ def ReturnNfInformations():
             nfs_to_close.append(nota)
     nfs = {
         "nfs_to_close": nfs_to_close,
-        'nfs' : notas
+        'nfs' : notas,
+        'total_nfs' : len(notas)
     }
     return nfs
 

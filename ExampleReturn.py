@@ -1,1 +1,9 @@
-ActiveShipment = [{"ShipmentID":382878,"ExpectedDate":"2020-04-03T00:00:00","ShipmentStatusID":7,"OrderID":381581,"OrderShipmentNumber":"IN/000001-P000001","StockID":92299,"StockName":"HOM_GOLDEN","OrderField1Name":"NF","OrderField1Value":"123456"}]
+ActiveShipment = [
+    {"ShipmentID":382878,"ExpectedDate":"2020-04-03T00:00:00","ShipmentStatusID":7,"OrderID":381581,"OrderShipmentNumber":"IN/000001-P000001","StockID":92299,"StockName":"HOM_GOLDEN","OrderField1Name":"NF","OrderField1Value":"123456"},
+    {"ShipmentID":382878,"ExpectedDate":"2020-04-03T00:00:00","ShipmentStatusID":7,"OrderID":381581,"OrderShipmentNumber":"IN/000001-P000001","StockID":92299,"StockName":"HOM_GOLDEN","OrderField1Name":"NF","OrderField1Value":"123"}
+
+]
+
+ItemsOfShipments = [
+    {"ShipmentItemID":1479669,"SupplyModelID":3871,"SupplyModelBrandName":"Lexmark","SupplySubFunctionName":"Drum/Photoconductor","PartNumber":"52D0Z00","Capacity":100000},{"ShipmentItemID":1479670,"SupplyModelID":3871,"SupplyModelBrandName":"Lexmark","SupplySubFunctionName":"Drum/Photoconductor","PartNumber":"52D0Z00","Capacity":100000},{"ShipmentItemID":1479671,"SupplyModelID":3871,"SupplyModelBrandName":"Lexmark","SupplySubFunctionName":"Drum/Photoconductor","PartNumber":"52D0Z00","Capacity":100000},{"ShipmentItemID":1479672,"SupplyModelID":3871,"SupplyModelBrandName":"Lexmark","SupplySubFunctionName":"Drum/Photoconductor","PartNumber":"52D0Z00","Capacity":100000},{"ShipmentItemID":1479673,"SupplyModelID":3871,"SupplyModelBrandName":"Lexmark","SupplySubFunctionName":"Drum/Photoconductor","PartNumber":"52D0Z00","Capacity":100000},{"ShipmentItemID":1479674,"SupplyModelID":3871,"SupplyModelBrandName":"Lexmark","SupplySubFunctionName":"Drum/Photoconductor","PartNumber":"52D0Z00","Capacity":100000},{"ShipmentItemID":1479675,"SupplyModelID":3871,"SupplyModelBrandName":"Lexmark","SupplySubFunctionName":"Drum/Photoconductor","PartNumber":"52D0Z00","Capacity":100000}
+]

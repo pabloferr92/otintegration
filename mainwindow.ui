@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>679</width>
-    <height>665</height>
+    <width>696</width>
+    <height>674</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>GetPrintJobs</string>
+   <string>ReceiveItems</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QFrame" name="frameHeader">
@@ -305,7 +305,7 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="labelSupID">
+    <widget class="QLabel" name="labelSupplierID">
      <property name="geometry">
       <rect>
        <x>270</x>
@@ -315,7 +315,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Password</string>
+      <string>SupplierID</string>
      </property>
      <property name="textFormat">
       <enum>Qt::PlainText</enum>
@@ -670,7 +670,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>F:\PROJETOS\GetPrintJobs\Reports</string>
+      <string/>
      </property>
      <property name="placeholderText">
       <string>c:\</string>
@@ -694,10 +694,16 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>679</width>
+     <width>696</width>
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuReceiveItems">
+    <property name="title">
+     <string>ReceiveItems</string>
+    </property>
+   </widget>
+   <addaction name="menuReceiveItems"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

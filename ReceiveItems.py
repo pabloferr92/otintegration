@@ -7,12 +7,11 @@ from CriptNDD import EncryptPW
 
 from datetime import datetime, date, timedelta
 
-def GetActiveShipmentsForSupplier(supplierid,email,passsword):
+def ReceiveItems(supplierid,email,passsword,shipmentid,datereceived,utc,shipmentlist):
 
     passsword = EncryptPW(passsword)
 
     url = 'https://api-supplierorders.nddprint.com/SupplierOrdersWS/SupplierOrdersData.asmx'
-    #print(url,dealername,usermail, userpw)
 
     payload ="""<?xml version="1.0" encoding="utf-8"?>
     <soap:Envelope
@@ -20,22 +19,16 @@ def GetActiveShipmentsForSupplier(supplierid,email,passsword):
         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
-            <GetActiveShipmentsForSupplier xmlns="nddprint.com/api/">
+            <ReceiveItems xmlns="nddprint.com/api/">
             <supplierID>{}</supplierID>
             <supplierUserEmail>{}</supplierUserEmail>
             <supplierUserPassword>{}</supplierUserPassword>
-            <fieldsList>
-                ShipmentID;
-                ExpectedDate;
-                ShipmentStatusID;
-                OrderID;
-                OrderShipmentNumber;
-                StockID;
-                StockName;
-                OrderField1Name;
-                OrderField1Value
-            </fieldsList>                       
-            </GetActiveShipmentsForSupplier>
+            <shipmentID>{}</shipmentID>
+             <dateReceived>{}</dateReceived>
+             <utc>{}</utc>
+             <shipmentItemList>{}</shipmentItemList>
+             <comments>{}</comments>
+            </ReceiveItems>
         </soap:Body>
     </soap:Envelope>
     """.format(supplierid,email,passsword)
@@ -56,6 +49,23 @@ def GetActiveShipmentsForSupplier(supplierid,email,passsword):
 
     return shipments_return
 
-#print(GetActiveShipmentsForSupplier('362','lucas.silva@ndd.com.br','MU/TS5GBuxjdP7bMT773nw=='))
 
-#senha descriptografada aca122
+
+
+
+
+
+
+
+
+'''ShipmentStatusID
+
+Identificador do status da entrega, que pode ser:
+
+1 - Requested (Solicitada)
+
+5 - Reserved (Processada)
+
+7 - Sent (Encaminhada)
+
+8 - Receiving (Em recebimento)'''
